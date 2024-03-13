@@ -1,0 +1,30 @@
+/* Google Fonts(Mulish & Inter) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+.font-mulish {
+  font-family: "Mulish", sans-serif;
+}
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
+.project-btn {
+  border-radius: 50px;
+  background: #797dfc;
+}
+.project-btn:hover {
+  background-color: #0d13af;
+}
+
+.bg-hero {
+  background-image: url(./images/bgbanner.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+.para-text {
+  font-weight: 400;
+  font-size: 18px;
+  color: #12132d99;
+}
+.test {
+  border: 1px solid #30325e1a;
+}

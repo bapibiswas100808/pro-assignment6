@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReUse Forum</title>
+    <!-- TailWind And Daisy -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/43ff3a26aa.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="max-w-[1170px] mx-auto my-12">
+      <!-- Nav Area Starts -->
+      <nav
+        class="flex flex-col lg:flex-row justify-between items-center space-y-5 lg:space-y-0"
+      >
+        <div>
+          <h2 class="font-mulish text-4xl font-extrabold text-[#12132d]">
+            ReUse
+          </h2>
+        </div>
+        <div class="text-center flex flex-col items-center lg:flex-row">
+          <div>
+            <div class="tooltip" data-tip="Home">
+              <button class="">
+                <i
+                  class="fa-solid fa-house bg-[#12132d08] text-[#12132d99] px-3 py-3 rounded-full me-3 cursor-pointer hover:bg-[#0d13af] hover:text-white"
+                ></i>
+              </button>
+            </div>
+            <div class="tooltip" data-tip="Edit">
+              <button class="">
+                <i
+                  class="fa-solid fa-pencil bg-[#12132d08] text-[#12132d99] px-3 py-3 rounded-full me-3 cursor-pointer hover:bg-[#0d13af] hover:text-white"
+                ></i>
+              </button>
+            </div>
+            <div class="tooltip" data-tip="Members">
+              <button class="">
+                <i
+                  class="fa-regular fa-user bg-[#12132d08] text-[#12132d99] px-3 py-3 rounded-full me-3 cursor-pointer hover:bg-[#0d13af] hover:text-white"
+                ></i>
+              </button>
+            </div>
+            <div class="tooltip" data-tip="Flags">
+              <button class="">
+                <i
+                  class="fa-regular fa-flag bg-[#12132d08] text-[#12132d99] px-3 py-3 rounded-full cursor-pointer hover:bg-[#0d13af] hover:text-white"
+                ></i>
+              </button>
+            </div>
+          </div>
+          <button
+            class="project-btn text-white text-sm lg:text-xl px-10 py-2 lg:py-3 font-bold ms-0 md:ms-6 lg:ms-6 mt-6 lg:mt-0"
+          >
+            Sign In
+          </button>
+        </div>
+      </nav>
+      <!-- Nav area Ends -->
+    </header>
+    <main class="max-w-[1170px] mx-auto">
+      <!-- Banner Area Starts -->
+      <section
+        class="flex flex-col lg:flex-row items-center justify-around bg-[#12132D] min-h-[600px] lg:min-h-[550px] rounded-3xl mx-3 lg:mx-0 bg-hero mb-10 lg:mb-24"
+      >
+        <div class="max-w-[500px]">
+          <div class="px-3 py-5 space-y-6">
+            <h1
+              class="text-3xl lg:text-6xl text-center lg:text-left font-extrabold text-white"
+            >
+              Welcome to the
+              <span
+                class="bg-gradient-to-r from-[#797DFC] to-[#464675] bg-clip-text text-transparent"
+                >ReUse</span
+              >
+              Forum
+            </h1>
+
+            <p class="text-white pb-0 lg:pb-5 text-center lg:text-left">
+              Share your favorite opinion and win many <br />
+              up forum coffee mug!
+            </p>
+            <label
+              class="input input-bordered flex items-center gap-2 rounded-full max-w-[330px] md:max-w-full lg:max-w-full"
+            >
+              <input
+                id="search"
+                type="text"
+                class="grow"
+                placeholder="Search Here Anything"
+              />
+              <span
+                onclick="handleSearch()"
+                class="project-btn text-white font-bold px-5 lg:px-10 py-2 cursor-pointer"
+                >Search</span
+              >
+            </label>
+          </div>
+        </div>
+        <div class="min-w-[300px] md:min-w-[370px] lg:min-w-[370px]">
+          <div class="bg-white space-y-6 p-8 rounded-lg max-w-[370px]">
+            <div class="flex justify-between">
+              <span>Registered User</span>
+              <span>01</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Forum</span>
+              <span>05</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Topics</span>
+              <span>01</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Replies</span>
+              <span>01</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Banner area Ends -->
+
+      <!-- Discuss Area Starts -->
+      <section class="mb-10 lg:mb-24 px-3 lg:px-0">
+        <div class="text-center max-w-[700px] mx-auto px-3 lg:px-0">
+          <h2 class="text-4xl font-extrabold font-mulish">Let's Discuss</h2>
+          <p class="para-text my-4 lg:my-6">
+            Let's discuss reUse: Sustainable, efficient, eco-friendly. Reduce
+            waste, conserve resources, promote innovation, and build a better
+            future together.
+          </p>
+        </div>
+        <!-- Spinner div -->
+        <div id="loading-spinner" class="text-center hidden">
+          <span class="loading loading-dots loading-lg"></span>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-6">
+          <!-- All Post Container -->
+          <div id="all-post">
+            <!-- Single Post coming Dynamically -->
+          </div>
+          <!-- Selected message container -->
+          <div id="select-post">
+            <div
+              class="bg-[#12132D0D] p-6 min-w-[300px] lg:min-w-[370px] rounded-xl"
+            >
+              <div class="flex justify-between">
+                <h2 class="font-mulish text-xl font-bold">Title</h2>
+                <p>
+                  <i class="fa-solid fa-check-double text-green-600"></i>
+                  Mark As Read
+                  <span
+                    class="text-white bg-blue-900 px-2 py-1 rounded-full"
+                    id="count"
+                    >0</span
+                  >
+                </p>
+              </div>
+              <div id="selected-author">
+                <!--Selected Author  coming dynamically-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Discuss Area ends -->
+
+      <!-- Join Area Starts -->
+      <section class="mb-10 lg:mb-24 px-3 lg:px-0">
+        <div
+          class="flex flex-col lg:flex-row items-center justify-around bg-[#12132D] rounded-2xl py-6 lg:py-0 min-h-[400px]"
+        >
+          <div class="max-w-[670px] space-y-6 ps-5 lg:ps-20 mb-10 lg:mb-0">
+            <h2 class="text-white text-3xl font-mulish font-bold">
+              Join Our Forum
+            </h2>
+            <p class="para-text text-white">
+              Share your favorite opinion and win and wp forum coffee mug! Yes,
+              you can run unit tests and view the results directly within the
+              app.
+            </p>
+            <button
+              class="project-btn px-8 py-2 rounded-full text-white font-mulish font-bold"
+            >
+              Registered Now
+            </button>
+          </div>
+          <div>
+            <img
+              class="max-h-[300px] border-2 border-dashed border-b-0"
+              src="./images/joinforum.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </section>
+      <!-- Join Area Ends -->
+
+      <!-- Post Area Starts -->
+      <section class="mb-10 lg:mb-24 px-3 lg:px-0">
+        <div class="text-center max-w-[700px] mx-auto px-3 lg:px-0">
+          <h2 class="font-mulish text-4xl font-extrabold mb-6">Latest Posts</h2>
+          <p class="para-text mb-10">
+            Yes, you can run unit tests and view the results directly within the
+            app. The integrated testing features allow for a streamlined .
+          </p>
+        </div>
+        <!-- Post Container -->
+        <div
+          id="latest-post"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-between post-container space-y-5 md:space-y-0 lg:space-y-0 gap-0 md:gap-4 lg:gap-0"
+        >
+          <!-- Single Card coming dynamically -->
+        </div>
+      </section>
+      <!-- Post Area Ends -->
+    </main>
+    <!-- Footer Area Starts -->
+    <footer
+      class="text-center px-3 lg:px-10 py-12 lg:py-24 bg-gradient-to-r from-[#12132d0d] to-[#1011300d]"
+    >
+      <aside>
+        <h2 class="text-4xl font-extrabold text-[#12132D] font-mulish">
+          ReUse
+        </h2>
+        <p class="font-semibold para-text max-w-[600px] my-4 text-lg mx-auto">
+          ReUse forum fosters sustainable practices, offering discussions, tips,
+          and resources for recycling and minimizing waste in everyday life.
+        </p>
+        <div class="space-x-8">
+          <a href="#">
+            <i
+              class="fa-brands fa-twitter text-[#12132D] cursor-pointer hover:text-blue-500 text-2xl"
+            ></i
+          ></a>
+          <a href="#">
+            <i
+              class="fa-brands fa-facebook-f text-[#12132D] cursor-pointer hover:text-blue-500 text-2xl"
+            ></i>
+          </a>
+          <a href="#">
+            <i
+              class="fa-brands fa-instagram text-[#12132D] cursor-pointer hover:text-blue-500 text-2xl"
+            ></i>
+          </a>
+          <a href="#">
+            <i
+              class="fa-brands fa-github text-[#12132D] cursor-pointer hover:text-blue-500 text-2xl"
+            ></i>
+          </a>
+        </div>
+      </aside>
+      <hr class="boredr-dashed border-3 border-[#30325e1a] my-12" />
+      <p class="para-text text-center">2024; All Rights Reserved</p>
+    </footer>
+    <!-- Footer Area Ends -->
+
+    <!-- Javascript File -->
+    <script src="script.js"></script>
+  </body>
+</html>
